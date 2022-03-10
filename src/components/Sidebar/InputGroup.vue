@@ -109,7 +109,7 @@
 						</template>
 						<div id="image_resolution_label">{{input.image_element.naturalWidth}} x {{input.image_element.naturalHeight}} px</div>
 						<template v-if="!input.allow_upload">
-							<div class="tool" style="width: auto;" v-on:click="input.updatePreview()" title="Reload"><i class="unicode_icon" style="display: inline;">⟳</i> Reload</div>
+							<div class="tool" style="width: auto;" v-on:click="input.updatePreview()" title="重载"><i class="unicode_icon" style="display: inline;">⟳</i> 重载</div>
 						</template>
 					</div>
 				</template>

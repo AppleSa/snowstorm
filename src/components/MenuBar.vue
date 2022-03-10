@@ -9,12 +9,12 @@
             </ul>
         </li>
 		<template v-if="isVSCExtension">
-        	<li class="mode_selector" @click="openCodeViewer(true)" title="Open Code View to Side"><i class="unicode_icon split">{{'\u2385'}}</i></li>
-        	<li class="mode_selector" @click="openCodeViewer(false)" title="Open as Code View">Open Code</li>
+        	<li class="mode_selector" @click="openCodeViewer(true)" title="打开代码视图到侧边栏"><i class="unicode_icon split">{{'\u2385'}}</i></li>
+        	<li class="mode_selector" @click="openCodeViewer(false)" title="以打开代码视图">打开代码</li>
 		</template>
 		<template v-else-if="!portrait_view">
-        	<li class="mode_selector code" :class="{selected: selected_tab == 'code'}" @click="$emit('changetab', 'code')">Code</li>
-        	<li class="mode_selector preview" :class="{selected: selected_tab == 'preview'}" @click="$emit('changetab', 'preview')">Preview</li>
+        	<li class="mode_selector code" :class="{selected: selected_tab == 'code'}" @click="$emit('changetab', 'code')">代码</li>
+        	<li class="mode_selector preview" :class="{selected: selected_tab == 'preview'}" @click="$emit('changetab', 'preview')">预览</li>
 		</template>
     </ul>
 </template>
@@ -40,13 +40,13 @@ function openLink(link) {
 
 const Menu = [
 	{
-		label: 'File',
+		label: '文件',
 		children: [
-			{label: 'New File', click: () => {startNewProject()}},
+			{label: '新建', click: () => {startNewProject()}},
 		]
 	},
 	{
-		label: 'Examples',
+		label: '示例',
 		children: [
 			{label: 'Loading', 	click: () => {loadPreset('loading')}},
 			{label: 'Rainbow', 	click: () => {loadPreset('rainbow')}},
@@ -59,29 +59,30 @@ const Menu = [
 		]
 	},
 	{
-		label: 'View',
+		label: '视图',
 		children: [
-			{label: 'Grid Visibility', click: () => { View.grid.visible = !View.grid.visible }},
-			{label: 'Axis Helper Visibility', click: () => { View.helper.visible = !View.helper.visible }},
-			{label: 'Take Screenshot', click: () => { View.screenshot() }},
+			{label: '网格', click: () => { View.grid.visible = !View.grid.visible }},
+			{label: '辅助轴', click: () => { View.helper.visible = !View.helper.visible }},
+			{label: '截图', click: () => { View.screenshot() }},
 		]
 	},
 	{
-		label: 'Help',
+		label: '帮助',
 		children: [
-			{label: 'Format Documentation', click: () => { openLink('https://bedrock.dev/r/Particles') }},
-			{label: 'MoLang Sheet', click: (vm) => { vm.openDialog('molang_sheet') }},
-			{label: 'MoLang Grapher', click: () => { openLink('https://jannisx11.github.io/molang-grapher/') }},
-			{label: 'Report a Bug', click: () => { openLink('https://github.com/JannisX11/snowstorm/issues') }},
-			{label: 'Discord Channel', click: () => { openLink('https://discord.gg/eGqsNha') }},
+			{label: '格式文档', click: () => { openLink('https://bedrock.dev/r/Particles') }},
+			{label: 'MoLang 表格', click: (vm) => { vm.openDialog('molang_sheet') }},
+			{label: 'MoLang 可视化', click: () => { openLink('https://jannisx11.github.io/molang-grapher/') }},
+			{label: '反馈Bug', click: () => { openLink('https://github.com/JannisX11/snowstorm/issues') }},
+			{label: 'Discord 频道', click: () => { openLink('https://discord.gg/eGqsNha') }},
+			{label: '@Mclans团队', click: () => { openLink('https://mclans.cn') }},
 		]
 	}
 ]
 
 if (!isVSCExtension) {
 	Menu[0].children.push(
-		{label: 'Import', click: () => {importFile()}},
-		{label: 'Download', click: () => {downloadFile()}}
+		{label: '导入', click: () => {importFile()}},
+		{label: '下载', click: () => {downloadFile()}}
 	)
 }
 

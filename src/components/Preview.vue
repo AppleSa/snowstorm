@@ -5,27 +5,27 @@
         </div>
         <footer>
             <select id="loop_mode" v-model="loop_mode" @change="changeLoopMode()">
-                <option id="auto">Auto</option>
-                <option id="looping">Looping</option>
-                <option id="once">Once</option>
+                <option id="auto">自动</option>
+                <option id="looping">循环</option>
+                <option id="once">一次</option>
             </select>
             <select id="parent_mode" v-model="parent_mode" @change="changeParentMode()">
-                <option id="world">World</option>
-                <option id="entity">Entity</option>
-                <option id="locator">Locator</option>
+                <option id="world">世界</option>
+                <option id="entity">实体</option>
+                <option id="locator">定位器</option>
             </select>
-            <div class="tool ground_collision" :class="{disabled: !collision}" @click="toggleCollision()" title="Ground Collision"><i class="unicode_icon">{{'\u2305'}}</i></div>
+            <div class="tool ground_collision" :class="{disabled: !collision}" @click="toggleCollision()" title="地面碰撞"><i class="unicode_icon">{{'\u2305'}}</i></div>
 
             <div class="spacing" />
 
-            <div class="tool" @click="startAnimation()" title="Play"><i class="unicode_icon" style="font-size: 13pt;">{{'\u25B6'}}</i></div>
-            <div class="tool" @click="togglePause()" title="Pause"><i class="unicode_icon pause">{{'\u2016'}}</i></div>
+            <div class="tool" @click="startAnimation()" title="播放"><i class="unicode_icon" style="font-size: 13pt;">{{'\u25B6'}}</i></div>
+            <div class="tool" @click="togglePause()" title="暂停"><i class="unicode_icon pause">{{'\u2016'}}</i></div>
 
             <div class="spacing" />
 
             <div class="tool warning" @click="$emit('opendialog', 'warnings')" v-if="warning_count" :title="getWarningTitle()"><i class="unicode_icon warn">⚠</i>{{ warning_count }}</div>
-            <div class="stat">{{particle_counter}} P</div>
-            <div class="stat" style="width: 66px;">{{fps}} FPS</div>
+            <div class="stat">{{particle_counter}} 粒子</div>
+            <div class="stat" style="width: 120px;">{{fps}} 帧率</div>
         </footer>
     </main>
 </template>
@@ -56,8 +56,8 @@
         ];
         var c = gizmo_colors
         var colors = [
-            c.r.r, c.r.g, c.r.b,	c.r.r, c.r.g, c.r.b, 
-            c.g.r, c.g.g, c.g.b,	c.g.r, c.g.g, c.g.b, 
+            c.r.r, c.r.g, c.r.b,	c.r.r, c.r.g, c.r.b,
+            c.g.r, c.g.g, c.g.b,	c.g.r, c.g.g, c.g.b,
             c.b.r, c.b.g, c.b.b,	c.b.r, c.b.g, c.b.b,
         ]
         var geometry = new THREE.BufferGeometry();
@@ -81,7 +81,7 @@
 
     }
 
-    
+
     function startAnimation() {
         Emitter.stopLoop().playLoop();
     }
@@ -165,8 +165,8 @@
         data() {return {
             fps: 0,
             particles: 0,
-            loop_mode: 'Looping',
-            parent_mode: 'World',
+            loop_mode: '循环',
+            parent_mode: '世界',
             warning_count: 0,
             collision: true
         }},
@@ -175,10 +175,23 @@
                 resizeCanvas()
             },
             changeLoopMode() {
-                Emitter.loop_mode = this.loop_mode.toLowerCase();
+                if (this.loop_mode === "自动"){
+                  Emitter.loop_mode = "auto"
+                } else if (this.loop_mode === "一次"){
+                  Emitter.loop_mode = "once"
+                } else if (this.loop_mode === "循环"){
+                  Emitter.loop_mode = "looping"
+                }
             },
             changeParentMode() {
-                Emitter.parent_mode = this.parent_mode.toLowerCase();
+              console.log(this)
+              if (this.parent_mode === "世界"){
+                Emitter.parent_mode = "world"
+              } else if (this.parent_mode === "实体"){
+                Emitter.parent_mode = "entity"
+              } else if (this.parent_mode === "定位器"){
+                Emitter.parent_mode = "locator"
+              }
             },
             toggleCollision() {
                 Emitter.ground_collision = !Emitter.ground_collision;
@@ -186,8 +199,8 @@
             },
             getWarningTitle() {
                 return this.warning_count == 1
-                    ? '1 Warning'
-                    : (this.warning_count + ' Warnings');
+                    ? '1 警告'
+                    : (this.warning_count + ' 警告');
             },
             startAnimation,
             togglePause
@@ -240,12 +253,12 @@
         overflow-x: auto;
 		overflow-y: hidden;
 		scrollbar-width: none;
-	}	
+	}
     footer ::-webkit-scrollbar {
 		height: 0px;
 	}
 	footer > * {
-		padding: 2px 8px; 
+		padding: 2px 8px;
 		padding-top: 2px;
         background-color: var(--color-bar);
     }

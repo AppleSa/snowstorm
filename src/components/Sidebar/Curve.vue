@@ -25,7 +25,7 @@
         </div>
         <div class="curve_footer">
             <div class="fill_line"></div>
-            <div class="tool" style="width: auto;" v-on:click="curve.remove()">Remove Curve</div>
+            <div class="tool" style="width: auto;" v-on:click="curve.remove()">移除曲线</div>
         </div>
     </div>
 </template>

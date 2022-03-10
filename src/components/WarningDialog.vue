@@ -1,9 +1,9 @@
 <template>
     <dialog id="warnings" class="dialog">
         <div class="tool close_button" @click="$emit('close')"><i class="unicode_icon">{{'\u2A09'}}</i></div>
-        <h2>Warnings</h2>
+        <h2>警告</h2>
         <div class="scrollable">
-            There are {{ errors.length }} warning {{ errors.length == 1 ? 'note' : 'notes'}}:
+            有 {{ errors.length }} 个警告 :
             <ul>
                 <li class="warning" v-for="(error, index) in errors" :key="index">
                     {{ error.text }}

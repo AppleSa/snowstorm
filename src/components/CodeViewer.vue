@@ -1,7 +1,7 @@
 <template>
     <main id="code" class="code">
         <div class="menu">
-            <a @click="copy()">Copy</a>
+            <a @click="copy()">点击复制</a>
         </div>
 		<prism language="json">{{ code }}</prism>
     </main>

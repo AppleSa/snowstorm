@@ -5,7 +5,7 @@
 		<molang-dialog v-if="dialog == 'molang_sheet'" @close="closeDialog"></molang-dialog>
 		<warning-dialog v-if="dialog == 'warnings'" @close="closeDialog"></warning-dialog>
 
-		<info-box v-if="showVSCodeInfoBox" @close="closeInfoBox">Snowstorm is now available as an extension for VSCode!</info-box>
+		<info-box v-if="showVSCodeInfoBox" @close="closeInfoBox">Snowstorm 现在可以作为 VSCode 的扩展使用!</info-box>
 
         <header>
 			<menu-bar @changetab="setTab" :selected_tab="tab" :portrait_view="portrait_view" @opendialog="openDialog"></menu-bar>
@@ -20,9 +20,9 @@
 		<sidebar ref="sidebar" v-show="!portrait_view || tab == 'config'"></sidebar>
 
 		<ul v-if="portrait_view" id="portrait_mode_selector">
-        	<li class="mode_selector config" :class="{selected: tab == 'config'}" @click="setTab('config')">Config</li>
-        	<li class="mode_selector code" :class="{selected: tab == 'code'}" @click="setTab('code')">Code</li>
-        	<li class="mode_selector preview" :class="{selected: tab == 'preview'}" @click="setTab('preview')">Preview</li>
+        	<li class="mode_selector config" :class="{selected: tab == 'config'}" @click="setTab('config')">设置</li>
+        	<li class="mode_selector code" :class="{selected: tab == 'code'}" @click="setTab('code')">代码</li>
+        	<li class="mode_selector preview" :class="{selected: tab == 'preview'}" @click="setTab('preview')">预览</li>
 		</ul>
 
     </div>

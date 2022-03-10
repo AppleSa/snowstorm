@@ -69,7 +69,7 @@ function importFile() {
 	})
 }
 function startNewProject(force) {
-	if (vscode || force || confirm('This action may clear your current work. Do you want to continue?')) {
+	if (vscode || force || confirm('此操作可能会清除您当前的操作。你想继续吗?')) {
 		Config.reset();
 		updateInputsFromConfig();
 		return true;

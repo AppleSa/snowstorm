@@ -13,8 +13,8 @@ class Curve {
 
 		this.inputs = {
 			id: new Input({
-				label: 'Name',
-				info: 'The MoLang variable to be used later in MoLang expressions. Must begin with "variable."',
+				label: '名称',
+				info: '稍后在 MoLang 表达式中使用的 MoLang 变量。必须以“variable.”开头。',
 				placeholder: 'variable.curve1',
 				type: 'text',
 				value: '',
@@ -24,12 +24,12 @@ class Curve {
 			}),
 			mode: new Input({
 				type: 'select',
-				label: 'Mode',
-				info: 'Curve interpolation type',
+				label: '模式',
+				info: '曲线插值型',
 				value: ['catmull_rom', 'linear'].includes(data.mode) ? data.mode : 'linear',
 				options: {
-					catmull_rom: 'Catmull Rom',
-					linear: 'Linear',
+					catmull_rom: 'Catmull Rom 曲线',
+					linear: '线性',
 					//bezier: 'Bezier',
 				},
 				onchange() {
@@ -37,14 +37,14 @@ class Curve {
 				}
 			}),
 			input: new Input({
-				label: 'Input',
-				info: 'Horizontal input',
+				label: '输入',
+				info: '水平输入',
 				type: 'molang',
 				value: data.input
 			}),
 			range: new Input({
-				label: 'Range',
-				info: 'Horizontal range that the input is mapped to',
+				label: '范围',
+				info: '映射到输入的水平范围',
 				type: 'molang',
 				value: data.range
 			})

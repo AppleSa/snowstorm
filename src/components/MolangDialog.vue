@@ -1,55 +1,55 @@
 <template>
     <dialog id="molang_sheet" class="dialog">
         <div class="tool close_button" @click="$emit('close')"><i class="unicode_icon">{{'\u2A09'}}</i></div>
-        <h2>MoLang Sheet</h2>
+        <h2>MoLang 语法表</h2>
         <div class="scrollable">
-            <h3>Variables</h3>
+            <h3>变量</h3>
             <ul>
-                <li><code>variable.emitter_lifetime</code> Lifetime of the emitter</li>
-                <li><code>variable.emitter_age</code> Age of the emitter</li>
-                <li><code>variable.emitter_random_1</code> Random number between 0 and 1, constant per emitter loop</li>
-                <li><code>variable.emitter_random_2</code> Random number</li>
-                <li><code>variable.emitter_random_3</code> Random number</li>
-                <li><code>variable.emitter_random_4</code> Random number</li>
-                <li><code>variable.particle_lifetime</code> Lifetime of the particle</li>
-                <li><code>variable.particle_age</code> Age of the particle</li>
-                <li><code>variable.particle_random_1</code> Random number between 0 and 1, constant per particle</li>
-                <li><code>variable.particle_random_2</code> Random number</li>
-                <li><code>variable.particle_random_3</code> Random number</li>
-                <li><code>variable.particle_random_4</code> Random number</li>
-                <li><code>variable.entity_scale</code> Scale of the attached entity</li>
+                <li><code>variable.emitter_lifetime</code> 发射器生命周期</li>
+                <li><code>variable.emitter_age</code> 发射器寿命</li>
+                <li><code>variable.emitter_random_1</code> 每个发射器循环的 0 到 1 之间的随机常数</li>
+                <li><code>variable.emitter_random_2</code> 随机数</li>
+                <li><code>variable.emitter_random_3</code> 随机数</li>
+                <li><code>variable.emitter_random_4</code> 随机数</li>
+                <li><code>variable.particle_lifetime</code> 粒子生命周期</li>
+                <li><code>variable.particle_age</code> 粒子寿命</li>
+                <li><code>variable.particle_random_1</code> 每个粒子循环的 0 到 1 之间的随机常数</li>
+                <li><code>variable.particle_random_2</code> 随机数</li>
+                <li><code>variable.particle_random_3</code> 随机数</li>
+                <li><code>variable.particle_random_4</code> 随机数</li>
+                <li><code>variable.entity_scale</code> 附属实体的比例</li>
             </ul>
-            <h3>Math Operations</h3>
+            <h3>数学运算</h3>
             <ul>
-                <li><code>math.abs(value)</code> Absolute value of value</li>
-                <li><code>math.sin(value)</code> Sine (in degrees) of value</li>
-                <li><code>math.cos(value)</code> Cosine (in degrees) of value</li>
-                <li><code>math.clamp(value, min, max)</code> Clamp value to between min and max inclusive</li>
-                <li><code>math.ceil(value)</code> Round value up to nearest integral number</li>
-                <li><code>math.floor(value)</code> Round value down to nearest integral number</li>
-                <li><code>math.trunc(value)</code> Round value towards zero</li>
-                <li><code>math.round(value)</code> Round value to nearest integral number</li>
-                <li><code>math.mod(value, denominator)</code> Return the remainder of value / denominator</li>
-                <li><code>math.pow(base, exponent)</code> Elevates `base` to the `exponent`'th power</li>
-                <li><code>math.sqrt(value)</code> Square root of value</li>
-                <li><code>math.exp(value)</code> Calculates e to the value'th power</li>
-                <li><code>math.pi</code> Returns the float representation of the constant pi.</li>
-                <li><code>math.max(A, B)</code> Return highest value of A or B</li>
-                <li><code>math.min(A, B)</code> Return lowest value of A or B</li>
-                <li><code>math.asin(value)</code> arcsin of value</li>
-                <li><code>math.acos(value)</code> arccos of value</li>
-                <li><code>math.atan(value)</code> arctan of value</li>
-                <li><code>math.atan2(y, x)</code> arctan of y/x. NOTE: the order of arguments!</li>
-                <li><code>math.random(low, high)</code> Random value between low and high inclusive</li>
-                <li><code>math.random_integer(low, high)</code> Random integer value between low and high inclusive</li>
-                <li><code>math.die_roll(num, low, high)</code> returns the sum of 'num' random numbers, each with a value from low to high. Note: the generated random numbers are not integers like normal dice. For that, use `math.die_roll_integer`.</li>
-                <li><code>math.die_roll_integer(num, low, high)</code> returns the sum of 'num' random integer numbers, each with a value from low to high. Note: the generated random numbers are integers like normal dice.</li>
-                <li><code>math.hermite_blend(value)</code> Useful for simple smooth curve interpolation using one of the Hermite Basis functions: `3t^2 - 2t^3`. Note that while any valid float is a valid input, this function works best in the range [0,1].</li>
-                <li><code>math.lerp(start, end, 0_to_1)</code> Lerp from start to end via 0_to_1</li>
-                <li><code>math.lerprotate(start, end, 0_to_1)</code> Lerp the shortest direction around a circle from start degrees to end degrees via 0_to_1</li>
-                <li><code>math.ln(value)</code> Natural logarithm of value</li>
+                <li><code>math.abs(value)</code> 返回 value 的绝对值</li>
+                <li><code>math.sin(value)</code> 返回 value 的正弦(度)</li>
+                <li><code>math.cos(value)</code> 返回 value 的余弦(度)</li>
+                <li><code>math.clamp(value, min, max)</code> 将 value 限制在 min 和 max 之间</li>
+                <li><code>math.ceil(value)</code> 将 value 向上取整</li>
+                <li><code>math.floor(value)</code> 将 value 向下取整</li>
+                <li><code>math.trunc(value)</code> 返回 value 的整数部分</li>
+                <li><code>math.round(value)</code> 将 value 四舍五入</li>
+                <li><code>math.mod(value, denominator)</code> 返回 value 的余数</li>
+                <li><code>math.pow(base, exponent)</code> 返回 base 的 exponent 次方</li>
+                <li><code>math.sqrt(value)</code> 返回 value 的平方根</li>
+                <li><code>math.exp(value)</code> 返回 E 的 value 次幂</li>
+                <li><code>math.pi</code> 返回常量 Pi 的浮点数</li>
+                <li><code>math.max(A, B)</code> 返回 A 与 B 的最大值</li>
+                <li><code>math.min(A, B)</code> 返回 A 与 B 的最小值</li>
+                <li><code>math.asin(value)</code> 返回 value 的反正弦</li>
+                <li><code>math.acos(value)</code> 返回 value 的反余弦</li>
+                <li><code>math.atan(value)</code> 返回 value 的反正切</li>
+                <li><code>math.atan2(y, x)</code> 返回 y/x 的反正切。 注意参数的顺序</li>
+                <li><code>math.random(low, high)</code> 随机一个 low 和 high 之间的随机数(包含 high)</li>
+                <li><code>math.random_integer(low, high)</code> 随机一个 low 和 high 之间的随机整数(包含 high)</li>
+                <li><code>math.die_roll(num, low, high)</code> 返回 num 个随机数的集合，每个随机数的值从低到高。注意：生成的随机数不是像普通骰子那样的整数。如有需要，请使用 “math.die_roll_integer”</li>
+                <li><code>math.die_roll_integer(num, low, high)</code> 返回 num 个随机整数的集合，每个整数的值从低到高。注意：生成的随机数是像普通骰子一样的整数。</li>
+                <li><code>math.hermite_blend(value)</code> 对于使用 Hermite Basis 函数之一的简单平滑曲线插值很有用：`3t^2 - 2t^3`。请注意，虽然任何有效的浮点数都是有效的输入，但此函数在 [0,1] 范围内效果最佳。</li>
+                <li><code>math.lerp(start, end, 0_to_1)</code> 线性插值(在 0_to_1 的时间内,从 start 到 end)</li>
+                <li><code>math.lerprotate(start, end, 0_to_1)</code> 线性插值(在 0_to_1 的时间内,绕圆的最短方向旋转 start角度 到 end角度)</li>
+                <li><code>math.ln(value)</code> 返回 value 的自然对数</li>
             </ul>
-            <a href="https://bedrock.dev/docs/stable/MoLang" target="_blank" style="margin-top: 12px; display: block;">Full MoLang Documentation</a>
+            <a href="https://bedrock.dev/docs/stable/MoLang" target="_blank" style="margin-top: 12px; display: block;">完整的 Molang 文档</a>
         </div>
     </dialog>
 </template>
